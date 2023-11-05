@@ -11,14 +11,24 @@ from django.contrib.auth.forms import UserCreationForm
 
 class RegisterView(generic.CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('polls:/registration/success.html')  # Adjust the namespace if needed
+    success_url = reverse_lazy('registration/success.html')  # Use the URL name
     template_name = 'registration/register.html'
 
+def success_view(request):
+    return render(request, 'registration/success.html')
+
+
 # View for the list of polls
-class PollListView(View):
+class PollVoteView(View):
     def get(self, request):
         polls = Poll.objects.all()
         return render(request, 'polls/poll_list.html', {'polls': polls})
+
+# Vote for the list of polls
+class PollListView(View):
+    def get(self, request):
+        polls = Poll.objects.all()
+        return render(request, 'polls/poll_vote.html', {'polls': polls})
 
 # View for poll details and voting
 class PollDetailView(View):

@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import PollListView, PollDetailView, PollCreateView, PollEditView, RegisterView
+from .views import PollListView, PollDetailView, PollCreateView, PollEditView, RegisterView, PollVoteView, success_view
 from django.contrib.auth import views as auth_views
-from django.views.generic import TemplateView
+
 
 app_name = 'polls'
 
@@ -9,6 +9,7 @@ urlpatterns = [
     path('', PollListView.as_view(), name='poll_list'),
     path('<int:poll_id>/', PollDetailView.as_view(), name='poll_detail'),
     path('create/', PollCreateView.as_view(), name='poll_create'),
+    path('create/', PollVoteView.as_view(), name='poll_vote'),
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),  # Redirect to home page after logout
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset.html'), name='password_reset'),
@@ -19,5 +20,5 @@ urlpatterns = [
     
     # Registration URL
     path('register/', RegisterView.as_view(), name='register'),
-    path('register/success/', TemplateView.as_view(template_name='registration/success.html'), name='registration_success'),
-]
+    path('success/', success_view, name='success'),
+    ]
