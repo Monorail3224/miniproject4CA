@@ -11,9 +11,6 @@ Welcome to the Polling App, a web application built with Django that allows user
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -32,8 +29,8 @@ The Polling App is a web-based platform that enables users to create, manage, an
 
 Before you begin, ensure you have met the following requirements:
 
-- Python 3.6+
-- Django 3.x
+- Python 3.11.1
+- Django 4.2.6
 - SQLite (or your preferred database)
 - Additional dependencies (listed in [requirements.txt](/path/to/requirements.txt))
 
@@ -42,8 +39,8 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/yourusername/polling-app.git
-   cd polling-app
+   git clone https://github.com/Monorail3224/miniproject4CA.git
+   cd miniproject4CA
 
 2. Create a Virtual Environment:
 
