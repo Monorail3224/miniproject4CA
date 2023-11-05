@@ -5,7 +5,7 @@ Welcome to the Polling App, a web application built with Django that allows user
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#key-key-features)
+- [Features](#key-features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
