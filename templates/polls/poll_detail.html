@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>{{ poll.question }}</h1>
+        <ul class="list-group">
+            {% for choice in poll.choice_set.all %}
+            <li class="list-group-item">
+                {{ choice.choice_text }}
+                <span class="badge badge-primary badge-pill">{{ choice.votes }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'poll_vote' poll.id %}" class="btn btn-primary mt-3">Vote</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>Edit Poll</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="question">Question:</label>
+                <input type="text" class="form-control" id="question" name="question" value="{{ poll.question }}" required>
+            </div>
+            <div class="form-group">
+                <label for="choices">Choices (comma-separated):</label>
+                <input type="text" class="form-control" id="choices" name="choices" value="{% for choice in poll.choice_set.all %}{{ choice.choice_text }}{% if not forloop.last %},{% endif %}{% endfor %}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

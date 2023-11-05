@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>Vote on the Poll</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <legend>{{ poll.question }}</legend>
+                {% for choice in poll.choice_set.all %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="choice" id="choice{{ choice.id }}" value="{{ choice.id }}" required>
+                    <label class="form-check-label" for="choice{{ choice.id }}">
+                        {{ choice.choice_text }}
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">Vote</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
