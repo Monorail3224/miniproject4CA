@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import PollListView, PollDetailView, PollCreateView, PollEditView, RegisterView
 from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
 
 app_name = 'polls'
 
@@ -15,6 +16,8 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='registration/password_reset.html'), name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset.html'), name='password_reset_complete'),
     
+    
     # Registration URL
     path('register/', RegisterView.as_view(), name='register'),
+    path('register/success/', TemplateView.as_view(template_name='registration/success.html'), name='registration_success'),
 ]

@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 class RegisterView(generic.CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('polls:/polls/login.html')  # Adjust the namespace if needed
+    success_url = reverse_lazy('polls:/registration/success.html')  # Adjust the namespace if needed
     template_name = 'registration/register.html'
 
 # View for the list of polls

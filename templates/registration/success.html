@@ -1,0 +1,13 @@
+<!-- registration/success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5;url={% url 'polls:login' %}" /> <!-- Redirect to login page after 5 seconds -->
+    <title>Registration Successful</title>
+</head>
+<body>
+    <h1>Registration Successful!</h1>
+    <p>You will be redirected to the login page shortly. If you are not redirected, <a href="{% url 'polls:login' %}">click here to login</a>.</p>
+</body>
+</html>
