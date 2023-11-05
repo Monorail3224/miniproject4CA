@@ -4,6 +4,15 @@ from .models import Poll, Choice
 from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.urls import reverse_lazy
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
+
+
+class RegisterView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('polls:/polls/login.html')  # Adjust the namespace if needed
+    template_name = 'registration/register.html'
 
 # View for the list of polls
 class PollListView(View):
