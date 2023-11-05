@@ -1,13 +1,11 @@
 # Polling App with Django
 
-![Polling App Logo](/path/to/your/logo.png)
-
 Welcome to the Polling App, a web application built with Django that allows users to create and participate in polls.
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#features)
+- [Features](#Key)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
