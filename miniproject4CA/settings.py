@@ -10,6 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1']  # Replace 'example.com' with your actual domain
 
 INSTALLED_APPS = [
+    'polls',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
