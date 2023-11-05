@@ -5,7 +5,7 @@ Welcome to the Polling App, a web application built with Django that allows user
 ## Table of Contents
 
 - [Overview](#overview)
-- [Features](#Key)
+- [Features](#key-key-features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -30,7 +30,7 @@ Before you begin, ensure you have met the following requirements:
 - Python 3.11.1
 - Django 4.2.6
 - SQLite (or your preferred database)
-- Additional dependencies (listed in [requirements.txt](/path/to/requirements.txt))
+- Additional dependencies (listed in [requirements.txt](requirements.txt))
 
 ## Installation
 
