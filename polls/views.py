@@ -5,17 +5,34 @@ from django.views import View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 
 
-class RegisterView(generic.CreateView):
+class RegisterView(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('registration/success.html')  # Use the URL name
+    success_url = reverse_lazy('polls:success')  # Use the URL name instead of the template path
     template_name = 'registration/register.html'
 
 def success_view(request):
     return render(request, 'registration/success.html')
+
+def profile_view(request):
+    # Retrieve polls created by the logged-in user
+    user_polls = Poll.objects.filter(creator=request.user)  # Make sure 'creator' is the correct field name
+    return render(request, 'polls/user_profile.html', {'user_polls': user_polls})
+
+@login_required
+def edit_poll_view(request, poll_id):
+    poll = get_object_or_404(Poll, pk=poll_id)
+    if request.method == 'POST':
+        form = PollForm(request.POST, instance=poll)
+        if form.is_valid():
+            form.save()
+            return redirect('registration:poll_detail', poll_id=poll.id)  # Replace with the name of the detail view for a poll
+    else:
+        form = PollForm(instance=poll)
+    return render(request, 'polls/edit_poll.html', {'form': form, 'poll': poll})
 
 
 # View for the list of polls

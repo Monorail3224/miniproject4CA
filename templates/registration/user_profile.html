@@ -1,0 +1,25 @@
+<!-- user_profile.html -->
+{% extends "base_generic.html" %}  <!-- Extend your base template if you have one -->
+
+{% block content %}
+
+<h1>{{ user.username }}'s Profile</h1>
+
+<!-- Check if the user has created any polls -->
+{% if user_polls %}
+  <h2>Your Polls</h2>
+  <ul>
+    <!-- Loop through the polls created by the user -->
+    {% for poll in user_polls %}
+      <li>
+        {{ poll.question }}
+        <!-- Link to the poll edit page, assuming you have a view named 'edit_poll' -->
+        <a href="{% url 'polls:edit_poll' poll.id %}">Edit</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>You have not created any polls yet.</p>
+{% endif %}
+
+{% endblock %}
