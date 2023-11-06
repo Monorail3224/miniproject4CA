@@ -9,6 +9,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 
 
+
 class RegisterView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('polls:success')  # Use the URL name instead of the template path
@@ -20,7 +21,7 @@ def success_view(request):
 def profile_view(request):
     # Retrieve polls created by the logged-in user
     user_polls = Poll.objects.filter(creator=request.user)  # Make sure 'creator' is the correct field name
-    return render(request, 'polls/user_profile.html', {'user_polls': user_polls})
+    return render(request, 'registration/user_profile.html', {'user_polls': user_polls})
 
 @login_required
 def edit_poll_view(request, poll_id):

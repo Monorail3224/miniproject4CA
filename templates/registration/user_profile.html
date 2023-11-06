@@ -1,5 +1,5 @@
 <!-- user_profile.html -->
-{% extends "base_generic.html" %}  <!-- Extend your base template if you have one -->
+{% extends "base.html" %}  <!-- Extend your base template if you have one -->
 
 {% block content %}
 
@@ -14,7 +14,7 @@
       <li>
         {{ poll.question }}
         <!-- Link to the poll edit page, assuming you have a view named 'edit_poll' -->
-        <a href="{% url 'polls:edit_poll' poll.id %}">Edit</a>
+        <a href="{% url 'polls:poll_edit' poll.id %}">Edit</a>
       </li>
     {% endfor %}
   </ul>
